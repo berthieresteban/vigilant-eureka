@@ -1,8 +1,11 @@
 export class DiscountOffer {
-  constructor(partnerName, expiresIn, discountRateInPercent) {
+  constructor(partnerName, expiresIn, discountInPercent) {
+    if (discountInPercent > 50) {
+      throw new Error("Discount must be lower than 50")
+    }
     this.partnerName = partnerName;
     this.expiresIn = expiresIn;
-    this.discountInPercent = discountRateInPercent;
+    this.discountInPercent = discountInPercent;
   }
 }
 
