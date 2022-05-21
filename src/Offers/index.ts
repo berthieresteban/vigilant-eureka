@@ -1,16 +1,10 @@
-import { DiscountOffer } from "./DiscountOffer";
-import { VintedOffer } from "./VintedOffer";
-import { NaturaliaOffer } from "./NaturaliaOffer";
-import { IlekOffer } from "./IlekOffer";
-import { BackMarketOffer } from "./BackMarketOffer";
-import { DynamicOffer } from "./DynamicOffer";
+import DiscountOffer from "./DiscountOffer";
+import DynamicOffer from "./DynamicOffer";
+import * as OffersTypes from "./OffersTypes";
 
-export { DiscountOffer, DynamicOffer };
-
-export const Offers: any = {
+const Offers: any = {
   DiscountOffer,
-  VintedOffer,
-  NaturaliaOffer,
-  IlekOffer,
-  BackMarketOffer
+  ...OffersTypes
 };
+
+export { Offers, DiscountOffer, DynamicOffer };

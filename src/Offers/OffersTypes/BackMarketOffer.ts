@@ -1,4 +1,4 @@
-import { DiscountOffer } from "./DiscountOffer";
+import DiscountOffer from "../DiscountOffer";
 
 export class BackMarketOffer extends DiscountOffer {
   constructor(
@@ -11,12 +11,11 @@ export class BackMarketOffer extends DiscountOffer {
   updateDiscount() {
     this.expiresIn--;
 
-    if (this.discountInPercent <= 0) {
-      this.discountInPercent = 0;
-    } else if (this.expiresIn < 0) {
+    if (this.expiresIn < 0) {
       this.discountInPercent -= 4;
     } else {
       this.discountInPercent -= 2;
     }
+    this.afterUpdateDiscount();
   }
 }

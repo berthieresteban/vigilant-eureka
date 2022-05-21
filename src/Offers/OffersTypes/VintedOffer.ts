@@ -1,4 +1,4 @@
-import { DiscountOffer } from "./DiscountOffer";
+import DiscountOffer from "../DiscountOffer";
 
 export class VintedOffer extends DiscountOffer {
   constructor(
@@ -20,8 +20,6 @@ export class VintedOffer extends DiscountOffer {
     } else {
       this.discountInPercent += 1;
     }
-    if (this.discountInPercent > 50) {
-      this.discountInPercent = 50;
-    }
+    this.afterUpdateDiscount();
   }
 }

@@ -7,12 +7,10 @@ export class Store {
     this.discountOffers = discountOffers.map(offer => {
       return new DynamicOffer(
         offer.partnerName,
-        offer.partnerName,
         offer.expiresIn,
         offer.discountInPercent
       );
     });
-    this.discountOffers;
   }
   updateDiscounts() {
     this.discountOffers.forEach(discountOffer =>

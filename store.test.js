@@ -84,7 +84,7 @@ describe("Store", () => {
       new DiscountOffer("Ilek", 15, 40)
     ];
     const store = new Store(discountOffers);
-    const result = fs.readFileSync("./output-save.txt", {
+    const result = fs.readFileSync("./correct-output.txt", {
       encoding: "utf8"
     });
     const log = [];

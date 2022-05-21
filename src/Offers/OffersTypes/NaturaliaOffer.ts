@@ -1,4 +1,4 @@
-import { DiscountOffer } from "./DiscountOffer";
+import DiscountOffer from "../DiscountOffer";
 
 export class NaturaliaOffer extends DiscountOffer {
   constructor(
@@ -16,8 +16,6 @@ export class NaturaliaOffer extends DiscountOffer {
     } else {
       this.discountInPercent += 2;
     }
-    if (this.discountInPercent >= 50) {
-      this.discountInPercent = 50;
-    }
+    this.afterUpdateDiscount();
   }
 }

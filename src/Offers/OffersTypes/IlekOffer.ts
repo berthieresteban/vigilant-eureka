@@ -1,4 +1,4 @@
-import { DiscountOffer } from "./DiscountOffer";
+import DiscountOffer from "../DiscountOffer";
 
 export class IlekOffer extends DiscountOffer {
   constructor(

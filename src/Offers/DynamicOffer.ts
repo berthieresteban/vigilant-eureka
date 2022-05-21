@@ -1,13 +1,12 @@
 import { Offers } from ".";
 
-export class DynamicOffer {
+export default class DynamicOffer {
   constructor(
-    className: string,
     partnerName: string,
     expiresIn: number,
     discountInPercent: number
   ) {
-    let offer = className + "Offer";
+    let offer = partnerName + "Offer";
     if (Offers[offer] === undefined || Offers[offer] === null) {
       offer = "DiscountOffer";
     }

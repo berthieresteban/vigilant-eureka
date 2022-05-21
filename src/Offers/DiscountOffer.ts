@@ -1,4 +1,4 @@
-export class DiscountOffer {
+export default class DiscountOffer {
   partnerName: string;
   expiresIn: number;
   discountInPercent: number;
@@ -15,15 +15,22 @@ export class DiscountOffer {
     this.expiresIn = expiresIn;
     this.discountInPercent = discountInPercent;
   }
+  afterUpdateDiscount() {
+    if (this.discountInPercent <= 0) {
+      this.discountInPercent = 0;
+    }
+    if (this.discountInPercent >= 50) {
+      this.discountInPercent = 50;
+    }
+  }
   updateDiscount() {
     this.expiresIn--;
 
-    if (this.discountInPercent <= 0) {
-      this.discountInPercent = 0;
-    } else if (this.expiresIn < 0) {
+    if (this.expiresIn < 0) {
       this.discountInPercent -= 2;
     } else {
       this.discountInPercent--;
     }
+    this.afterUpdateDiscount();
   }
 }
