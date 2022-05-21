@@ -1,5 +1,5 @@
-import { Store, DiscountOffer } from "./store";
-
+import { Store } from "./store";
+import { DiscountOffer } from "./Offers";
 import fs from "fs";
 
 const discountOffers: Array<DiscountOffer> = [

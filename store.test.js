@@ -1,4 +1,6 @@
-import { Store, DiscountOffer } from "./store";
+import { Store } from "./src/store";
+import { DiscountOffer } from "./src/Offers";
+
 import fs from "fs";
 
 describe("Store", () => {
@@ -70,7 +72,7 @@ describe("Store", () => {
       new DiscountOffer("Ilek", 15, 40)
     ];
     const store = new Store(discountOffers);
-    const result = fs.readFileSync("./output.txt", {
+    const result = fs.readFileSync("./output-save.txt", {
       encoding: "utf8"
     });
     const log = [];
