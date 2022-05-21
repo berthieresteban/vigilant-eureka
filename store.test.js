@@ -64,6 +64,18 @@ describe("Store", () => {
     ).toEqual([new DiscountOffer("Vinted", 4, 13)]);
   });
 
+  it("should decrease the discount twice fast for BackMarket", () => {
+    expect(
+      new Store([new DiscountOffer("BackMarket", 5, 10)]).updateDiscounts()
+    ).toEqual([new DiscountOffer("BackMarket", 4, 8)]);
+  });
+
+  it("should decrease the discount twice fast after expiration date for BackMarket", () => {
+    expect(
+      new Store([new DiscountOffer("BackMarket", -1, 10)]).updateDiscounts()
+    ).toEqual([new DiscountOffer("BackMarket", -2, 6)]);
+  });
+
   it("should get the exact same result for the provided sample data", () => {
     const discountOffers = [
       new DiscountOffer("Velib", 20, 30),
