@@ -1,5 +1,13 @@
 export class DiscountOffer {
-  constructor(partnerName, expiresIn, discountInPercent) {
+  partnerName: string;
+  expiresIn: number;
+  discountInPercent: number;
+
+  constructor(
+    partnerName: string,
+    expiresIn: number,
+    discountInPercent: number
+  ) {
     if (discountInPercent > 50) {
       throw new Error("Discount must be lower than 50");
     }
@@ -10,16 +18,18 @@ export class DiscountOffer {
 }
 
 export class Store {
-  constructor(discountOffers = []) {
+  discountOffers: Array<DiscountOffer>;
+
+  constructor(discountOffers: Array<DiscountOffer> = []) {
     this.discountOffers = discountOffers;
   }
-  getModificatorSign(offer) {
+  getModificatorSign(offer: DiscountOffer) {
     if (["Naturalia", "Vinted"].includes(offer.partnerName)) {
       return 1;
     }
     return -1;
   }
-  getDiscountModificatorValue(offer) {
+  getDiscountModificatorValue(offer: DiscountOffer) {
     if (offer.partnerName === "Vinted") {
       if (offer.expiresIn <= 5) {
         return 3;
